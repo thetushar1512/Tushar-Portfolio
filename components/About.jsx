@@ -141,9 +141,9 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="md:col-span-2 sticky top-28"
+            className="md:col-span-2 md:sticky md:top-28"
           >
-            <div className="relative aspect-square rounded-3xl glass overflow-hidden glow-ring">
+            <div className="relative aspect-square max-h-[60vw] md:max-h-none rounded-3xl glass overflow-hidden glow-ring">
               <Canvas camera={{ position: [0, 0, 4.5], fov: 50 }} dpr={[1, 1.5]}>
                 <ambientLight intensity={0.4} />
                 <directionalLight position={[5, 5, 5]} intensity={1.2} color="#a78bfa" />
