@@ -1,13 +1,44 @@
 'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Linkedin, Github, Twitter, Instagram, Mail, Phone, MapPin, Send, Check } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Check } from 'lucide-react'
+import { FaLinkedinIn, FaGithub, FaInstagram } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
+
+function LinkedInIcon() {
+  return (
+    <div className="h-11 w-11 rounded-2xl grid place-items-center" style={{ background: 'linear-gradient(135deg, #0077B5, #00A0DC)' }}>
+      <FaLinkedinIn size={18} className="text-white" />
+    </div>
+  )
+}
+function GitHubIcon() {
+  return (
+    <div className="h-11 w-11 rounded-2xl grid place-items-center" style={{ background: 'linear-gradient(135deg, #24292e, #57606a)' }}>
+      <FaGithub size={18} className="text-white" />
+    </div>
+  )
+}
+function TwitterIcon() {
+  return (
+    <div className="h-11 w-11 rounded-2xl grid place-items-center" style={{ background: 'linear-gradient(135deg, #000000, #2d2d2d)' }}>
+      <FaXTwitter size={17} className="text-white" />
+    </div>
+  )
+}
+function InstagramIcon() {
+  return (
+    <div className="h-11 w-11 rounded-2xl grid place-items-center" style={{ background: 'linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)' }}>
+      <FaInstagram size={18} className="text-white" />
+    </div>
+  )
+}
 
 const socials = [
-  { name: 'LinkedIn', icon: Linkedin, color: 'from-sky-400 to-blue-600', glow: 'shadow-[0_0_60px_-10px_#3b82f6]', href: 'https://www.linkedin.com/in/tushar-nandal-04668126b?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
-  { name: 'GitHub', icon: Github, color: 'from-zinc-400 to-zinc-700', glow: 'shadow-[0_0_60px_-10px_#ffffff80]', href: 'https://github.com/thetushar1512' },
-  { name: 'Twitter', icon: Twitter, color: 'from-sky-300 to-cyan-500', glow: 'shadow-[0_0_60px_-10px_#22d3ee]', href: 'https://x.com/TushaRvK_18' },
-  { name: 'Instagram', icon: Instagram, color: 'from-pink-500 via-rose-500 to-amber-400', glow: 'shadow-[0_0_60px_-10px_#ec4899]', href: 'https://www.instagram.com/the.tushaaar?igsh=anp6dnJjd2w2OHQ2' },
+  { name: 'LinkedIn', IconComp: LinkedInIcon, glow: 'shadow-[0_0_50px_-12px_rgba(0,119,181,0.55)]', href: 'https://www.linkedin.com/in/tushar-nandal-04668126b?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
+  { name: 'GitHub', IconComp: GitHubIcon, glow: 'shadow-[0_0_50px_-12px_rgba(255,255,255,0.3)]', href: 'https://github.com/thetushar1512' },
+  { name: 'Twitter', IconComp: TwitterIcon, glow: 'shadow-[0_0_50px_-12px_rgba(29,155,240,0.4)]', href: 'https://x.com/TushaRvK_18' },
+  { name: 'Instagram', IconComp: InstagramIcon, glow: 'shadow-[0_0_50px_-12px_rgba(220,39,67,0.5)]', href: 'https://www.instagram.com/the.tushaaar?igsh=anp6dnJjd2w2OHQ2' },
 ]
 
 export default function Contact() {
@@ -55,52 +86,45 @@ export default function Contact() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <div className="font-mono-soft text-[10px] uppercase tracking-[0.4em] text-violet-300/80 mb-3">03 · Connect</div>
-          <h2 className="font-display text-4xl md:text-6xl font-light">Let's build <span className="italic text-violet-300">something</span></h2>
+          <div className="font-mono-soft text-[10px] uppercase tracking-[0.4em] text-white/40 mb-3">03 · Connect</div>
+          <h2 className="font-display text-4xl md:text-6xl font-light rainbow-hover">Let's build <span className="italic">something</span></h2>
           <p className="mt-4 text-white/55 max-w-xl mx-auto">I'm open to internships, collaborations, and ambitious side-projects. Drop a message — I reply faster than my IDE compiles.</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-6">
           {/* Social cards */}
           <div className="lg:col-span-2 grid grid-cols-2 gap-4 content-start">
-            {socials.map((s, i) => {
-              const Icon = s.icon
-              return (
-                <motion.a
-                  key={s.name}
-                  href={s.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-cursor="hover"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.06 }}
-                  whileHover={{ y: -6, rotateX: 6, rotateY: -4, scale: 1.02 }}
-                  className={`group relative aspect-square rounded-3xl border border-white/10 overflow-hidden bg-gradient-to-b from-white/[0.04] to-transparent p-5 flex flex-col justify-between transition-all hover:border-white/30 hover:${s.glow}`}
-                  style={{ transformStyle: 'preserve-3d' }}
-                >
-                  <div className={`absolute -bottom-20 -right-20 h-44 w-44 rounded-full bg-gradient-to-br ${s.color} opacity-20 blur-3xl group-hover:opacity-60 transition`} />
-                  <div className={`h-11 w-11 rounded-2xl bg-gradient-to-br ${s.color} grid place-items-center`}>
-                    <Icon size={18} className="text-black" />
-                  </div>
-                  <div>
-                    <div className="font-display text-lg">{s.name}</div>
-                    <div className="font-mono-soft text-[10px] uppercase tracking-[0.3em] text-white/40">@tushar</div>
-                  </div>
-                </motion.a>
-              )
-            })}
+            {socials.map((s, i) => (
+              <motion.a
+                key={s.name}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+                data-cursor="hover"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.06 }}
+                whileHover={{ y: -6, scale: 1.03 }}
+                className={`group relative aspect-square rounded-3xl border border-white/10 overflow-hidden bg-white/[0.03] p-5 flex flex-col justify-between transition-all hover:border-white/25 hover:bg-white/[0.055] ${s.glow}`}
+              >
+                <s.IconComp />
+                <div>
+                  <div className="font-display text-lg">{s.name}</div>
+                  <div className="font-mono-soft text-[10px] uppercase tracking-[0.3em] text-white/40">@tushar</div>
+                </div>
+              </motion.a>
+            ))}
 
             <div className="col-span-2 glass rounded-3xl p-5 space-y-3">
               <a href="mailto:tushar.nandal678@gmail.com" data-cursor="hover" suppressHydrationWarning className="flex items-center gap-3 text-sm text-white/70 hover:text-white">
-                <Mail size={15} className="text-violet-300" /> <span suppressHydrationWarning>tushar.nandal678@gmail.com</span>
+                <Mail size={15} className="text-white/50" /> <span suppressHydrationWarning>tushar.nandal678@gmail.com</span>
               </a>
               <a href="tel:+917206191512" data-cursor="hover" suppressHydrationWarning className="flex items-center gap-3 text-sm text-white/70 hover:text-white">
-                <Phone size={15} className="text-violet-300" /> +91 72061 91512
+                <Phone size={15} className="text-white/50" /> +91 72061 91512
               </a>
               <div className="flex items-center gap-3 text-sm text-white/60">
-                <MapPin size={15} className="text-violet-300" /> Goa, India · Open to remote
+                <MapPin size={15} className="text-white/50" /> Goa, India · Open to remote
               </div>
             </div>
           </div>
@@ -122,7 +146,7 @@ export default function Contact() {
                   type="text"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full rounded-xl px-4 py-3 text-sm text-white bg-white/[0.03] border border-white/10 focus:border-violet-400 focus:outline-none transition placeholder:text-white/20"
+                  className="w-full rounded-xl px-4 py-3 text-sm text-white bg-white/[0.03] border border-white/10 focus:border-white/30 focus:outline-none focus:shadow-[0_0_0_3px_rgba(255,255,255,0.04),0_0_28px_rgba(140,247,210,0.16)] transition placeholder:text-white/20"
                   placeholder="e.g. Ada Lovelace"
                 />
               </div>
@@ -133,7 +157,7 @@ export default function Contact() {
                   type="email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full rounded-xl px-4 py-3 text-sm text-white bg-white/[0.03] border border-white/10 focus:border-violet-400 focus:outline-none transition placeholder:text-white/20"
+                  className="w-full rounded-xl px-4 py-3 text-sm text-white bg-white/[0.03] border border-white/10 focus:border-white/30 focus:outline-none focus:shadow-[0_0_0_3px_rgba(255,255,255,0.04),0_0_28px_rgba(140,247,210,0.16)] transition placeholder:text-white/20"
                   placeholder="hello@yourdomain.com"
                 />
               </div>
@@ -145,7 +169,7 @@ export default function Contact() {
                 rows={6}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full rounded-xl px-4 py-3 text-sm text-white bg-white/[0.03] border border-white/10 focus:border-violet-400 focus:outline-none resize-none transition placeholder:text-white/20"
+                className="w-full rounded-xl px-4 py-3 text-sm text-white bg-white/[0.03] border border-white/10 focus:border-white/30 focus:outline-none focus:shadow-[0_0_28px_rgba(140,247,210,0.14)] resize-none transition placeholder:text-white/20"
                 placeholder="Tell me about your idea, role, or project…"
               />
             </div>
@@ -164,9 +188,9 @@ export default function Contact() {
                 data-cursor="hover"
                 className="relative inline-flex items-center gap-2 px-6 py-3 rounded-full overflow-hidden disabled:opacity-60 transition active:scale-95"
               >
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-400" />
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-400 blur-xl opacity-50" />
-                <span className="absolute inset-[1.5px] rounded-full bg-black/70" />
+                <span className="absolute inset-0 rounded-full rainbow-ring" />
+                <span className="absolute inset-0 rounded-full rainbow-ring blur-xl opacity-40" />
+                <span className="absolute inset-[1.5px] rounded-full bg-black/85" />
                 <span className="relative z-10 inline-flex items-center gap-2 text-sm text-white font-medium">
                   {sent ? (
                     <>

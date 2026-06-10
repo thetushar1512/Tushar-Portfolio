@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${syncopate.variable}`}>
-      <body className="bg-black text-white antialiased selection:bg-violet-500/40 selection:text-white overflow-x-hidden">
+      <body className="bg-black text-white antialiased selection:bg-white/20 selection:text-white overflow-x-hidden">
         {children}
       </body>
     </html>

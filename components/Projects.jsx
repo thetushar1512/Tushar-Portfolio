@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Tilt from 'react-parallax-tilt'
 import { Github, ExternalLink, Cpu, Zap, Globe, AudioLines, ShieldAlert } from 'lucide-react'
 
 const projects = [
@@ -10,7 +9,7 @@ const projects = [
     sub: 'Real-time Quick-Commerce PWA',
     domain: 'Full-Stack',
     icon: Zap,
-    accent: 'from-violet-500 to-fuchsia-500',
+    accent: 'from-white to-emerald-200',
     desc: 'Architected a Progressive Web App streamlining food ordering for 3,000+ students at BITS Goa. Live multi-order tracking via Firestore snapshot listeners. Merchant dashboard with sound alerts & automated payment workflows.',
     tech: ['Next.js 16', 'Firebase', 'Firestore', 'Tailwind', 'Turbopack', 'PWA'],
     github: 'https://github.com/ayush-ranjan15/Disaster-alert-system',
@@ -23,7 +22,7 @@ const projects = [
     sub: 'Adaptive Kalman + Fuzzy Logic',
     domain: 'AI / IoT',
     icon: Cpu,
-    accent: 'from-cyan-400 to-blue-500',
+    accent: 'from-cyan-100 to-slate-400',
     desc: 'Built under Prof. Anirban Das. Fuzzy-logic-based dynamic sensor selection + adaptive Kalman filter fusing 4 heterogeneous temperature sensors. MQTT-based IoT pipeline with dockerised InfluxDB backend.',
     tech: ['Python', 'MQTT', 'InfluxDB', 'Docker', 'Kalman', 'Fuzzy Logic'],
     github: 'https://github.com/thetushar1512/Iot_database_system',
@@ -33,9 +32,9 @@ const projects = [
   {
     title: 'DSP Music Genre Classifier',
     sub: 'Non-ML Audio Intelligence Pipeline',
-    domain: 'Digital Signal Processing',
+    domain: 'DSP / Signals & Systems',
     icon: AudioLines,
-    accent: 'from-blue-600 to-red-600',
+    accent: 'from-slate-200 to-indigo-300',
     desc: 'Developed a deterministic audio analysis pipeline that maps music into a geometric feature space. Extracts spectral centroids, zero-crossing rates, and spectral flux using Fourier Transforms (STFT) with Hamming windows to accurately isolate genre traits without relying on neural networks.',
     tech: ['Python 3', 'Librosa', 'NumPy', 'Matplotlib', 'Signals & Systems'],
     github: 'https://github.com/thetushar1512/Music-Genre-Detector-DSP',
@@ -47,25 +46,25 @@ const projects = [
     sub: 'ECOM F213 — Object Oriented Programming',
     domain: 'Software Architecture',
     icon: ShieldAlert,
-    accent: 'from-teal-500 to-emerald-400',
+    accent: 'from-emerald-100 to-teal-300',
     desc: 'A production-grade, role-based disaster forecasting and alerting engine built from scratch in pure Java, utilizing deterministic mathematical modeling to process multi-source environmental telemetry.',
     tech: ['Java', 'OOP', 'I/O Streams', 'Software Design Patterns'],
     github: 'https://github.com/thetushar1512/Smart-Disaster-Alert-System',
     live: '',
     highlights: ['4 Disaster Simulation Models', 'Role-Based Access Control', 'Custom Probability Engine'],
   },
-  {
-    title: 'Codeforces Grind',
-    sub: 'manUNDERmaskk — DSA Mastery',
-    domain: 'Algorithms',
-    icon: Globe,
-    accent: 'from-amber-400 to-rose-500',
-    desc: "Active competitive programmer on Codeforces with a focus on Striver's A2Z DSA sheet — solving problems centred on data-structures, graph algorithms, and architectural efficiency.",
-    tech: ['C++', 'DSA', 'Codeforces', 'Algorithms'],
-    github: 'https://codeforces.com/profile/manUNDERmaskk',
-    live: 'https://codeforces.com/profile/manUNDERmaskk',
-    highlights: ['Daily problems', 'Graph + DP focus', 'Striver A2Z'],
-  },
+  // {
+  //   title: 'Codeforces Grind',
+  //   sub: 'manUNDERmaskk — DSA Mastery',
+  //   domain: 'Algorithms',
+  //   icon: Globe,
+  //   accent: 'from-zinc-100 to-zinc-500',
+  //   desc: "Active competitive programmer on Codeforces with a focus on Striver's A2Z DSA sheet — solving problems centred on data-structures, graph algorithms, and architectural efficiency.",
+  //   tech: ['C++', 'DSA', 'Codeforces', 'Algorithms'],
+  //   github: 'https://codeforces.com/profile/manUNDERmaskk',
+  //   live: 'https://codeforces.com/profile/manUNDERmaskk',
+  //   highlights: ['Daily problems', 'Graph + DP focus', 'Striver A2Z'],
+  // },
 ]
 
 const filters = ['All', 'Full-Stack', 'AI / IoT', 'DSP / Signals & Systems', 'Software Architecture', 'Algorithms']
@@ -85,8 +84,8 @@ export default function Projects() {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
         >
           <div>
-            <div className="font-mono-soft text-[10px] uppercase tracking-[0.4em] text-violet-300/80 mb-3">02 · Selected work</div>
-            <h2 className="font-display text-4xl md:text-6xl font-light">Projects <span className="italic text-violet-300">showcase</span></h2>
+            <div className="font-mono-soft text-[10px] uppercase tracking-[0.4em] text-white/40 mb-3">02 · Selected work</div>
+            <h2 className="font-display text-4xl md:text-6xl font-light rainbow-hover">Projects <span className="italic">showcase</span></h2>
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -95,7 +94,7 @@ export default function Projects() {
                 key={f}
                 onClick={() => setActive(f)}
                 data-cursor="hover"
-                className={`px-4 py-2 text-xs font-mono-soft uppercase tracking-widest rounded-full border transition ${active === f ? 'bg-violet-500/15 text-white border-violet-400/60 shadow-[0_0_30px_-8px_#8b5cf6]' : 'border-white/10 text-white/50 hover:text-white hover:border-white/30'}`}
+                className={`px-4 py-2 text-xs font-mono-soft uppercase tracking-widest rounded-full border transition rainbow-glow-hover ${active === f ? 'bg-white/5 text-white border-white/20' : 'border-white/8 text-white/45 hover:text-white hover:border-white/20'}`}
               >
                 {f}
               </button>
@@ -116,38 +115,30 @@ export default function Projects() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.6, delay: i * 0.06, ease: [0.22,1,0.36,1] }}
                 >
-                  <Tilt
-                    tiltMaxAngleX={6}
-                    tiltMaxAngleY={6}
-                    glareEnable
-                    glareMaxOpacity={0.18}
-                    glareColor="#a78bfa"
-                    glarePosition="all"
-                    transitionSpeed={1500}
-                    className="h-full"
+                  <motion.article
+                    data-cursor="hover"
+                    whileHover={{ y: -6 }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 24 }}
+                    className="group color-hover-card relative h-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.012))] p-6 shadow-[0_18px_70px_rgba(0,0,0,0.18)] md:p-8"
                   >
-                    <div data-cursor="hover" className="group relative h-full rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-6 md:p-8 overflow-hidden">
-                      {/* Decorative grad */}
-                      <div className={`absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gradient-to-br ${p.accent} opacity-20 blur-3xl group-hover:opacity-40 transition`} />
-                      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition">
-                        <div className="absolute inset-0 rounded-3xl border border-violet-400/40 shadow-[0_0_60px_-15px_#8b5cf6]" />
+                    <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/28 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+
+                    <div className="relative z-10 mb-6 flex items-start justify-between">
+                      <div className={`grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${p.accent} shadow-[0_16px_40px_rgba(0,0,0,0.24)] transition duration-300 group-hover:scale-[1.04]`}>
+                        <Icon size={20} className="text-black" />
                       </div>
+                      <span className="font-mono-soft text-[10px] uppercase tracking-[0.3em] text-white/36 transition group-hover:text-white/52">{p.domain}</span>
+                    </div>
 
-                      <div className="relative flex items-start justify-between mb-6">
-                        <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${p.accent} grid place-items-center shadow-lg`}>
-                          <Icon size={20} className="text-black" />
-                        </div>
-                        <span className="font-mono-soft text-[10px] uppercase tracking-[0.3em] text-white/40">{p.domain}</span>
-                      </div>
+                    <div className="relative z-10">
+                      <h3 className="font-display text-2xl font-light text-white/92 transition group-hover:text-white md:text-3xl">{p.title}</h3>
+                      <div className="mt-1 text-sm text-white/48">{p.sub}</div>
 
-                      <h3 className="font-display text-2xl md:text-3xl font-light">{p.title}</h3>
-                      <div className="text-sm text-violet-300/80 mt-1">{p.sub}</div>
-
-                      <p className="mt-4 text-sm text-white/55 leading-relaxed">{p.desc}</p>
+                      <p className="mt-4 text-sm leading-relaxed text-white/54 transition group-hover:text-white/62">{p.desc}</p>
 
                       <div className="mt-5 flex flex-wrap gap-1.5">
                         {p.tech.map((t) => (
-                          <span key={t} className="px-2.5 py-1 text-[10px] uppercase tracking-widest rounded-full border border-white/10 text-white/60">
+                          <span key={t} className="rounded-full border border-white/[0.08] px-2.5 py-1 text-[10px] uppercase tracking-widest text-white/54 transition group-hover:border-white/[0.14] group-hover:text-white/68">
                             {t}
                           </span>
                         ))}
@@ -155,25 +146,27 @@ export default function Projects() {
 
                       <div className="mt-6 grid grid-cols-3 gap-2">
                         {p.highlights.map((h) => (
-                          <div key={h} className="text-[10px] text-center text-white/45 border border-white/5 rounded-lg py-2 px-1 bg-white/[0.02]">
+                          <div key={h} className="rounded-lg border border-white/[0.06] bg-white/[0.018] px-1 py-2 text-center text-[10px] text-white/42 transition group-hover:border-white/[0.1] group-hover:text-white/55">
                             {h}
                           </div>
                         ))}
                       </div>
 
-                      <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-5">
+                      <div className="mt-6 flex items-center justify-between border-t border-white/[0.06] pt-5">
                         <div className="flex items-center gap-2">
-                          <a href={p.github} target="_blank" rel="noreferrer" data-cursor="hover" className="h-9 w-9 grid place-items-center rounded-full border border-white/10 hover:bg-white hover:text-black transition">
+                          <a href={p.github} target="_blank" rel="noreferrer" data-cursor="hover" className="grid h-9 w-9 place-items-center rounded-full border border-white/[0.09] text-white/68 transition hover:border-white/30 hover:bg-white hover:text-black">
                             <Github size={15} />
                           </a>
-                          <a href={p.live} target="_blank" rel="noreferrer" data-cursor="hover" className="h-9 w-9 grid place-items-center rounded-full border border-white/10 hover:bg-violet-500 hover:text-white hover:border-violet-500 transition">
-                            <ExternalLink size={15} />
-                          </a>
+                          {p.live && (
+                            <a href={p.live} target="_blank" rel="noreferrer" data-cursor="hover" className="grid h-9 w-9 place-items-center rounded-full border border-white/[0.09] text-white/68 transition hover:border-white/30 hover:bg-white hover:text-black">
+                              <ExternalLink size={15} />
+                            </a>
+                          )}
                         </div>
-                        <div className="font-mono-soft text-[10px] uppercase tracking-[0.3em] text-white/30">0{i+1} / 0{projects.length}</div>
+                        <div className="font-mono-soft text-[10px] uppercase tracking-[0.3em] text-white/28 transition group-hover:text-white/42">0{i+1} / 0{projects.length}</div>
                       </div>
                     </div>
-                  </Tilt>
+                  </motion.article>
                 </motion.div>
               )
             })}

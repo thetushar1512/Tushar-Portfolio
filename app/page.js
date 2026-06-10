@@ -1,5 +1,4 @@
 'use client'
-import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import CustomCursor from '@/components/CustomCursor'
 import Loader from '@/components/Loader'
@@ -9,14 +8,18 @@ import About from '@/components/About'
 import Projects from '@/components/Projects'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-
-const ParticleField = dynamic(() => import('@/components/ParticleField'), { ssr: false })
+import LiveCodeBackground from '@/components/LiveCodeBackground'
 
 function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // simulate asset load
+    // Always start at top — clears any hash left by globe node navigation
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname)
+    }
+    window.scrollTo(0, 0)
+
     const t = setTimeout(() => setLoading(false), 2600)
     return () => clearTimeout(t)
   }, [])
@@ -25,17 +28,8 @@ function App() {
     <main className="relative min-h-screen bg-black text-white noise">
       {loading && <Loader onDone={() => setLoading(false)} />}
 
-      {/* Background 3D Particle Field */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <ParticleField />
-      </div>
-
-      {/* Subtle grid backdrop */}
-      <div className="fixed inset-0 z-0 grid-bg pointer-events-none" />
-
-      {/* Gradient orbs */}
-      <div className="fixed -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-violet-600/20 blur-[140px] pointer-events-none z-0" />
-      <div className="fixed -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[140px] pointer-events-none z-0" />
+      {/* Live Code Background */}
+      <LiveCodeBackground />
 
       <CustomCursor />
       <Navbar />
