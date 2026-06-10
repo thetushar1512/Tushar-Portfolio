@@ -35,7 +35,7 @@ function InstagramIcon() {
 }
 
 const socials = [
-  { name: 'LinkedIn', IconComp: LinkedInIcon, glow: 'shadow-[0_0_50px_-12px_rgba(0,119,181,0.55)]', href: 'https://www.linkedin.com/in/tushar-nandal-04668126b?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
+  { name: 'LinkedIn', IconComp: LinkedInIcon, glow: 'shadow-[0_0_50px_-12px_rgba(0,119,181,0.55)]', href: 'https://www.linkedin.com/in/tushar-nandal-866899371/' },
   { name: 'GitHub', IconComp: GitHubIcon, glow: 'shadow-[0_0_50px_-12px_rgba(255,255,255,0.3)]', href: 'https://github.com/thetushar1512' },
   { name: 'Twitter', IconComp: TwitterIcon, glow: 'shadow-[0_0_50px_-12px_rgba(29,155,240,0.4)]', href: 'https://x.com/TushaRvK_18' },
   { name: 'Instagram', IconComp: InstagramIcon, glow: 'shadow-[0_0_50px_-12px_rgba(220,39,67,0.5)]', href: 'https://www.instagram.com/the.tushaaar?igsh=anp6dnJjd2w2OHQ2' },

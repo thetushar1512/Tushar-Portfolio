@@ -8,9 +8,7 @@ export default function MagneticButton({ children, href = '#', className = '', p
 
   const onMove = (e) => {
     const r = ref.current.getBoundingClientRect()
-    const mx = e.clientX - r.left - r.width / 2
-    const my = e.clientY - r.top - r.height / 2
-    setPos({ x: mx * 0.35, y: my * 0.35 })
+    setPos({ x: (e.clientX - r.left - r.width / 2) * 0.35, y: (e.clientY - r.top - r.height / 2) * 0.35 })
   }
   const reset = () => setPos({ x: 0, y: 0 })
 
@@ -23,19 +21,19 @@ export default function MagneticButton({ children, href = '#', className = '', p
       onMouseLeave={reset}
       animate={{ x: pos.x, y: pos.y }}
       transition={{ type: 'spring', stiffness: 200, damping: 15, mass: 0.4 }}
-      className={`relative inline-flex items-center gap-3 px-7 py-4 rounded-full font-medium text-sm tracking-wider group ${className}`}
+      className={`relative inline-flex items-center gap-3 px-7 py-4 rounded-full font-medium text-sm tracking-wider overflow-hidden group active:scale-95 transition-transform ${className}`}
     >
       {primary ? (
         <>
-          <span className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-400 opacity-100" />
-          <span className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-400 blur-xl opacity-50 group-hover:opacity-90 transition" />
-          <span className="absolute inset-[1.5px] rounded-full bg-black/70" />
+          <span className="absolute inset-0 rounded-full rainbow-ring" />
+          <span className="absolute inset-[1.5px] rounded-full bg-black/85" />
           <span className="relative z-10 text-white">{children}</span>
         </>
       ) : (
         <>
-          <span className="absolute inset-0 rounded-full border border-white/20 group-hover:border-violet-400/60 transition" />
-          <span className="relative z-10 text-white/90">{children}</span>
+          <span className="absolute inset-0 rounded-full rainbow-ring-reverse opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+          <span className="absolute inset-[1.5px] rounded-full bg-black/85" />
+          <span className="relative z-10 text-white/80 group-hover:text-white transition-colors">{children}</span>
         </>
       )}
     </motion.a>

@@ -199,6 +199,12 @@ html, body {
   animation: rotateSlow 10s linear infinite;
 }
 
+.rainbow-ring-reverse {
+  background:
+    conic-gradient(from 0deg, rgba(255,255,255,0.12), #8cf7d2, rgba(255,255,255,0.78), #6d7f8d, #d7f9ff, rgba(255,255,255,0.12));
+  animation: rotateSlow 10s linear infinite reverse;
+}
+
 /* Text gets a restrained accent glow on hover */
 .rainbow-hover {
   display: inline-block;

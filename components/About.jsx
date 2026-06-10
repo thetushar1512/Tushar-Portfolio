@@ -15,6 +15,13 @@ const skills = {
 const timeline = [
   {
     icon: GraduationCap,
+    year: '2016 — 2024',
+    title: 'Scholars Rosary Senior Secondary School',
+    org: 'Rohtak, Haryana',
+    desc: 'Foundation years — built early curiosity around code, systems, and product thinking.',
+  },
+  {
+    icon: GraduationCap,
     year: '2024 — 2028',
     title: 'B.E. Electrical & Electronics Engineering',
     org: 'BITS Pilani — K.K. Birla Goa Campus',
@@ -47,13 +54,6 @@ const timeline = [
     title: 'DSP Music Genre Classifier',
     org: 'Independent Project — DSP / Signals & Systems',
     desc: 'Built a zero-ML genre classifier using STFT + Hamming windows to extract timbre, brightness, and rhythmic volatility into a 3D feature space with deterministic fuzzy-logic vetoes.',
-  },
-  {
-    icon: GraduationCap,
-    year: '2016 — 2024',
-    title: 'Scholars Rosary Senior Secondary School',
-    org: 'Rohtak, Haryana',
-    desc: 'Foundation years — built early curiosity around code, systems, and product thinking.',
   },
 ]
 

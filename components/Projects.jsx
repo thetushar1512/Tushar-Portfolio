@@ -12,7 +12,7 @@ const projects = [
     accent: 'from-white to-emerald-200',
     desc: 'Architected a Progressive Web App streamlining food ordering for 3,000+ students at BITS Goa. Live multi-order tracking via Firestore snapshot listeners. Merchant dashboard with sound alerts & automated payment workflows.',
     tech: ['Next.js 16', 'Firebase', 'Firestore', 'Tailwind', 'Turbopack', 'PWA'],
-    github: 'https://github.com/ayush-ranjan15/Disaster-alert-system',
+    github: 'https://github.com/Ayush15-code/Bits-eateries-ordering-app',
     live: 'https://campus-eats-app.vercel.app',
     highlights: ['3,000+ target users', 'iOS + Android PWA', 'Real-time tracking'],
   },
